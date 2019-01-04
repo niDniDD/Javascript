@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" id ="demo">
+        <br>
+        <button onclick="myFunction()">อ่าน</button>
+    </div>
+    <script>
+        function myFunction() {
+            var num = ["ศูนย์", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า"];
+            var value = ["หน่วย", "สิบ", "ร้อย", "พัน", "หมื่น"];
+            var input = document.getElementById("demo").value;
+            var res = "";
+            for (let i = 0; i < input.length; i++) {
+
+                if (input[i] !== "0") {
+
+                    res = res + num[parseInt(input[i])];
+
+                    res = res + value[input.length - (i + 1)];
+                }
+
+            }
+            res = res.replace("หนึ่งหน่วย", "เอ็ด")
+            res = res.replace("หน่วย", "")
+            res = res.replace("สองสิบ", "ยี่สิบ")
+            res = res.replace("หนึ่งสิบเอ็ด", "สิบเอ็ด")
+            res = res.replace("หนึ่งสิบ", "สิบ")
+            if(input.length <= 1){
+                res = res.replace("เอ็ด", "หนึ่ง")
+            }
+            console.log(res);
+
+
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
